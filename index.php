@@ -2,26 +2,48 @@
 
 require_once 'models/Movie.php';
 
-$movies = [
-  new Movie('Baby Driver', 'Azione', 115, new Dettagli(2017, '3.4')),
-  new Movie('The Mask', 'Commedia', 100, new Dettagli(1994, '4.3')),
-  new Movie('Il gigante di ferro', 'Avventura ', 86, new Dettagli(1999, '3.2')),
-];
+require_once 'db-movies.php';
 
-
-var_dump($movies);
+// var_dump($movies)
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP OOP</title>
-</head>
-<body>
+<?php require_once 'partials/head.php'; ?>
+
+<body class="bg-dark">
+<!-- <body class=""> -->
+
+  <div class="container my-5">
+
+    <h1 class="text-primary mb-3">Movies</h1>
+
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <!-- <th scope="col"></th> -->
+          <th scope="col" class="text-info">Titolo</th>
+          <th scope="col" class="text-info">Genere</th>
+          <th scope="col" class="text-info">Durata</th>
+          <th scope="col" class="text-info">Anno</th>
+          <th scope="col" class="text-info">Voto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($movies as $movie) : ?>
+          <tr>
+            <!-- <th scope="row"><?php echo $movie->$index ?></th> -->
+            <td><?php echo $movie->titolo ?></td>
+            <td><?php echo $movie->genere ?></td>
+            <td><?php echo $movie->lunghezza ?></td>
+            <td><?php echo $movie->dettagli->anno ?></td>
+            <td><?php echo $movie->dettagli->voto ?>/5</td>
+          </tr>
+        <?php endforeach ?>
+      </tbody>
+    </table>
+
+
+  </div>
   
 </body>
 </html>

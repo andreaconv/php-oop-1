@@ -22,6 +22,6 @@ class Movie{
     $zero    = new DateTime('@0');
     $offset  = new DateTime('@' . $_lunghezza * 60);
     $diff    = $zero->diff($offset);
-    return $diff->format('%hh, %Im');
+    return $diff->format('%hh %Im');
   }
 }
